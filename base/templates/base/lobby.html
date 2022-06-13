@@ -2,8 +2,18 @@
 {% load static %}
 
 {% block content %}
-    <img src="{% static 'images/chat-icon.png' %}">
+
+    <main>
+        <section id="form-container">
+             <img id="logo" src="{% static 'images/chat-icon.png' %}">
+
+            <div>
+                <h1>Welcome to MyChat</h1>
+                <p>A group video application just for you</p>
+            </div>
+        </section>
+
 
     <h2>Lobby</h2>
-
+    </main>
 {% endblock      %}
