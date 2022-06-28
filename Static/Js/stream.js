@@ -1,7 +1,8 @@
 
 const APP_ID = '0b9af9d17d3c48aa928633bc76883f52'
 const CHANNEL = 'main'
-const TOKEN = '0060b9af9d17d3c48aa928633bc76883f52IADVMYpoOf56vQBBpmzzPELs9ZPL92sZsKO84IOg6+Fm5WTNKL8AAAAAEADzS24fs/WqYgEAAQDs9api'
+const TOKEN = '0060b9af9d17d3c48aa928633bc76883f52IAAVmBUrHyK+h8wd6ZB149HeHgaLotqQ3XgKbcjSqFhx5GTNKL8AAAAAEACuPHv6oOS7YgEAAQDY5Lti'
+
 let Uid;
 const client = AgoraRTC.createClient({mode:'rtc', codec:'vp8'})
 
@@ -10,6 +11,8 @@ let localTracks = []
 let remoteUsers = {}
 
 let joinAndDisplayLocalScreen = async () => {
+    client.on('user-published', handleUserJoined )
+    client.on('user-left', handleUserLeft )
     Uid = await client.join(APP_ID, CHANNEL, TOKEN, )
 
     localTracks = await AgoraRTC.createMicrophoneAndCameraTracks()
@@ -27,4 +30,70 @@ let joinAndDisplayLocalScreen = async () => {
     await client.publish([localTracks[0], localTracks[1]])
 }
 
+let handleUserJoined = async (user, mediaType) => {
+    remoteUsers[user.uid] = user
+    await client.subscribe(user,mediaType)
+
+    if(mediaType === 'video'){
+        let player = document.getElementById(`user-container-${user.uid}`)
+        if(player != null){
+            player.remove()
+        }
+         player = `<div class="video-container" id="user-container-${user.uid}">
+                        <div class="username-wrapper"><span class="user-name">My Name</span></div>
+                        <div class="video-player" id="user-${user.uid}">
+        
+                        </div>
+                    </div>`
+         document.getElementById('video-streams').insertAdjacentHTML('beforeend', player)
+        user.videoTrack.play(`user-${user.uid}`)
+    }
+
+    if(mediaType === 'audio'){
+        user.audioTrack.play()
+    }
+
+}
+let handleUserLeft = async (user) => {
+    delete remoteUsers[user.uid]
+    document.getElementById(`user-container-${user.uid}`).remove()
+    alert(`user-${user.uid} leave the stream`);
+
+
+}
+
+let leaveAndRemoveLocalStream = async () => {
+    for(let i = 0; localTracks.length > i ; i++){
+        localTracks[i].stop()
+        localTracks[i].close()
+
+    }
+    await client.leave()
+    window.open('/', '_self')
+}
+
+let toogleCammera = async (e) => {
+    if(localTracks[1].muted){
+        await localTracks[1].setMuted(false)
+        e.target.style.backgroundColor = '#fff'
+    }else{
+        await localTracks[1].setMuted(true)
+        e.target.style.backgroundColor = 'rgba(255, 80, 80, 1)'
+    }
+}
+
+let toogleMicrophone = async (e) => {
+    if(localTracks[0].muted){
+        await localTracks[0].setMuted(false)
+        e.target.style.backgroundColor = '#fff'
+    }else{
+        await localTracks[0].setMuted(true)
+        e.target.style.backgroundColor = 'rgba(255, 80, 80, 1)'
+    }
+}
+
 joinAndDisplayLocalScreen()
+
+document.getElementById('mic-btn').addEventListener('click', toogleMicrophone)
+document.getElementById('camera-btn').addEventListener('click', toogleCammera)
+document.getElementById('leave-btn').addEventListener('click', leaveAndRemoveLocalStream)
