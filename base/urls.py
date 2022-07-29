@@ -10,3 +10,4 @@ urlpatterns = [
     path('get_token/', views.getToken),
 ]
 
+

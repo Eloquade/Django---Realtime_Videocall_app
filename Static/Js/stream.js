@@ -3,6 +3,7 @@ const APP_ID = '0b9af9d17d3c48aa928633bc76883f52'
 const CHANNEL =  sessionStorage.getItem('room')
 const TOKEN =  sessionStorage.getItem('token')
 let Uid = Number(sessionStorage.getItem('UID'))
+let NAME = sessionStorage.getItem('username')
 
 const client = AgoraRTC.createClient({mode:'rtc', codec:'vp8'})
 
@@ -106,3 +107,6 @@ joinAndDisplayLocalScreen()
 document.getElementById('mic-btn').addEventListener('click', toogleMicrophone)
 document.getElementById('camera-btn').addEventListener('click', toogleCammera)
 document.getElementById('leave-btn').addEventListener('click', leaveAndRemoveLocalStream)
+
+
+
