@@ -1,0 +1,79 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'Style/main.css' %}">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/nnattawat/flip@master/dist/jquery.flip.js"></script>
+    <script src="jquery-2.1.4.min.js"></script>
+    <script src="jquery.flip.js"></script>
+
+    <script type="text/javascript">
+        function flip(){
+            document.getElementById("flipper").style.transform= "rotateY(180deg)";
+        }
+
+    </script>
+</head>
+<body>
+
+    <div class="flipper" id="flipper">
+        <section id="form-container" >
+            <header class="middle">
+                <h1>Welcome Back</h1>
+                <p>We're so excited to see you again!</p>
+            </header>
+            <form id="form">
+                <div class="form-field">
+                    <p>Email or Phone number</p>
+                    <input type="text" name="room" placeholder="Enter a roomname" style="text-transform: uppercase;">
+
+                </div>
+                <div class="form-field">
+                    <p>Password</p>
+                    <input type="text" name="username" placeholder="Enter a Username" style="text-transform: uppercase;">
+                    <p>Forgot your password ?</p>
+                </div>
+                <div class="form-field">
+                    <input type="submit" value="Login">
+                    <a onclick="flip()">Create my account →</a>
+                </div>
+                <p class="middle">Sign in with</p>
+
+
+            </form>
+        </section>
+        <section id="form-container" >
+            <header class="middle">
+                <h1>Welcome backbro</h1>
+                <p>We're so excited to see you again!</p>
+            </header>
+            <form id="form">
+                <div class="form-field">
+                    <p>Email or Phone number</p>
+                    <input type="text" name="room" placeholder="Enter a roomname" style="text-transform: uppercase;">
+                </div>
+
+                <div class="form-field">
+                    <p>Password</p>
+                    <input type="text" name="username" placeholder="Enter a Username" style="text-transform: uppercase;">
+                    <p>Forgot your password ?</p>
+                </div>
+                <div class="form-field">
+                    <input type="submit" value="Login">
+                    <a onclick="flip()">Login to my account →</a>
+                </div>
+                <p class="middle">Sign in with</p>
+
+
+            </form>
+        </section>
+    </div>
+
+</body>
+</html>
+
+

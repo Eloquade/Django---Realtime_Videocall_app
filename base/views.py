@@ -10,6 +10,10 @@ def Home(request):
     return render(request, 'base/home.html')
 
 
+def login(request):
+    return render(request, 'base/login.html')
+
+
 def Lobby(request):
     return render(request, 'base/lobby.html')
 
