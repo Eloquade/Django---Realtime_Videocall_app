@@ -6,6 +6,9 @@ import time
 
 
 # Create your views here.
+def Home(request):
+    return render(request, 'base/home.html')
+
 
 def Lobby(request):
     return render(request, 'base/lobby.html')
@@ -28,6 +31,3 @@ def getToken(request):
     token = RtcTokenBuilder.buildTokenWithUid(appId, appCertificate, channelName, uid, role, privilegeExpiredTs)
 
     return JsonResponse({'token': token, 'uid': uid}, safe=False)
-
-
-
