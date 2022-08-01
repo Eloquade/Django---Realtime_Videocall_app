@@ -13,7 +13,6 @@ let remoteUsers = {}
 
 let joinAndDisplayLocalScreen = async () => {
     document.getElementById('room-name').innerText = CHANNEL
-
     client.on('user-published', handleUserJoined )
     client.on('user-left', handleUserLeft )
 
@@ -28,7 +27,7 @@ let joinAndDisplayLocalScreen = async () => {
     localTracks = await AgoraRTC.createMicrophoneAndCameraTracks()
 
     let player = `<div class="video-container" id="user-container-${Uid}">
-                        <div class="username-wrapper"><span class="user-name">My Name</span></div>
+                        <div class="username-wrapper"><span class="user-name">${NAME}</span></div>
                         <div class="video-player" id="user-${Uid}">
         
                         </div>
@@ -50,7 +49,7 @@ let handleUserJoined = async (user, mediaType) => {
             player.remove()
         }
          player = `<div class="video-container" id="user-container-${user.uid}">
-                        <div class="username-wrapper"><span class="user-name">My Name</span></div>
+                        <div class="username-wrapper"><span class="user-name">${NAME}</span></div>
                         <div class="video-player" id="user-${user.uid}">
         
                         </div>

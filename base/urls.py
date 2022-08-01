@@ -4,7 +4,8 @@ from . import views
 
 
 urlpatterns = [
-    path('', views.Lobby),
+    path('', views.Home),
+    path('lobby', views.Lobby),
     path('room', views.Room),
 
     path('get_token/', views.getToken),
