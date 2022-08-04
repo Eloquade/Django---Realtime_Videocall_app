@@ -24,55 +24,59 @@
 
     </script>
 </head>
-<body>
-    <div  class="card">
-        <div class="other-front">
-              <h1 class="header">Welcome Back!</h1>
-              <p>we're excited to see you again!</p>
-              <form id="form">
-                <div class="form-field">
-                    <p>Email or Phone number</p>
-                    <input type="text" name="room" placeholder="" style="text-transform: uppercase;">
-                </div>
-                <div class="form-field">
-                    <p>Password</p>
-                    <input type="text" name="username" placeholder="" style="text-transform: uppercase;">
-                    <p>Forgot your password ?</p>
-                </div>
-                <div class="form-field">
-                    <input type="submit" value="Login">
-                </div>
-                <p class="flipper">Need an account? <strong>Register</strong></p>
-                <p class="header">Sign in with</p>
-                <footer>
+<body class="background" style="background-image: url('{% static 'images/background.png' %}')">
+    <header>
+        <span><img src="{% static 'images/chat-icon.png' %}" style="height: 40px"/></span>
+        <span style="font-size: 35px">MyChat</span>
+        <div  class="card">
+            <div class="other-front">
+                  <h1 class="header">Welcome Back!</h1>
+                  <p>we're excited to see you again!</p>
+                  <form id="form">
+                    <div class="form-field">
+                        <p>Email or Phone number</p>
+                        <input type="text" name="room" placeholder="" style="text-transform: uppercase;">
+                    </div>
+                    <div class="form-field">
+                        <p>Password</p>
+                        <input type="text" name="username" placeholder="" style="text-transform: uppercase;">
+                        <p>Forgot your password ?</p>
+                    </div>
+                    <div class="form-field">
+                        <input type="submit" value="Login">
+                    </div>
+                    <p class="flipper">Need an account? <strong>Register</strong></p>
+                    <p class="header">Sign in with</p>
+                    <footer>
 
-                </footer>
-            </form>
-        </div>
-        <div class="other-back">
-              <h1 class="header">Create an account</h1>
-              <form id="form">
-                <div class="form-field">
-                    <p>Email</p>
-                    <input type="text" name="room" placeholder="" style="text-transform: uppercase;">
-                </div>
-                <div class="form-field">
-                    <p>Username</p>
-                    <input type="text" name="room" placeholder="" style="text-transform: uppercase;">
-                </div>
-                <div class="form-field">
-                    <p>Password</p>
-                    <input type="text" name="username" placeholder="" style="text-transform: uppercase;">
-                    <p>Forgot your password ?</p>
-                </div>
-                <div class="form-field">
-                    <input type="submit" value="Register">
-                </div>
-                <p class="flipper">Already have an account?</p>
-                <p>By registering, you agree to MyChat's Terms of Service and Privacy Policy</p>
+                    </footer>
+                </form>
+            </div>
+            <div class="other-back">
+                  <h1 class="header">Create an account</h1>
+                  <form id="form">
+                    <div class="form-field">
+                        <p>Email</p>
+                        <input type="text" name="room" placeholder="" style="text-transform: uppercase;">
+                    </div>
+                    <div class="form-field">
+                        <p>Username</p>
+                        <input type="text" name="room" placeholder="" style="text-transform: uppercase;">
+                    </div>
+                    <div class="form-field">
+                        <p>Password</p>
+                        <input type="text" name="username" placeholder="" style="text-transform: uppercase;">
+                        <p>Forgot your password ?</p>
+                    </div>
+                    <div class="form-field">
+                        <input type="submit" value="Register">
+                    </div>
+                    <p class="flipper">Already have an account?</p>
+                    <p>By registering, you agree to MyChat's Terms of Service and Privacy Policy</p>
 
-            </form>
+                </form>
+            </div>
         </div>
-    </div>
+    </header>
 </body>
 </html>

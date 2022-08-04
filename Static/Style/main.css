@@ -230,7 +230,7 @@ body{
 .card {
       position: relative;
       padding: 30px;
-      top: 400px;
+      top: 350px;
       left: 700px;
       width: 345px;
       text-align: center;
@@ -269,6 +269,16 @@ body{
 .header{
     text-align: center;
 }
+
+.background{
+   background-position: top;
+   background-repeat: no-repeat;
+   background-size: cover;
+
+}
+
+
+
 #form{
     text-align: left;
 }
