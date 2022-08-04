@@ -8,12 +8,9 @@
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/nnattawat/flip@master/dist/jquery.flip.js"></script>
-    <script src="jquery-2.1.4.min.js"></script>
-    <script src="jquery.flip.js"></script>
-
     <script type="text/javascript">
         $(function(){
-            $(".card").flip({
+            $(".flipper").flip({
                 axis: "y", // y or x
                 reverse: false, // true and false
                 trigger: "click", // click or hover
@@ -30,33 +27,50 @@
 <body>
     <div  class="card">
         <div class="other-front">
-              <h1>Welcome to MyChat</h1>
-              <p>A group video application just for you</p>
+              <h1 class="header">Welcome Back!</h1>
+              <p>we're excited to see you again!</p>
               <form id="form">
                 <div class="form-field">
-                    <input type="text" name="room" placeholder="Enter a roomname" style="text-transform: uppercase;">
+                    <p>Email or Phone number</p>
+                    <input type="text" name="room" placeholder="" style="text-transform: uppercase;">
                 </div>
                 <div class="form-field">
-                    <input type="text" name="username" placeholder="Enter a Username" style="text-transform: uppercase;">
+                    <p>Password</p>
+                    <input type="text" name="username" placeholder="" style="text-transform: uppercase;">
+                    <p>Forgot your password ?</p>
                 </div>
                 <div class="form-field">
-                    <input type="submit" value="Join Stream">
+                    <input type="submit" value="Login">
                 </div>
+                <p class="flipper">Need an account? <strong>Register</strong></p>
+                <p class="header">Sign in with</p>
+                <footer>
+
+                </footer>
             </form>
         </div>
         <div class="other-back">
-              <h1>Welcome to MyChat</h1>
-              <p>A group video application just for you</p>
+              <h1 class="header">Create an account</h1>
               <form id="form">
                 <div class="form-field">
-                    <input type="text" name="room" placeholder="Enter a roomname" style="text-transform: uppercase;">
+                    <p>Email</p>
+                    <input type="text" name="room" placeholder="" style="text-transform: uppercase;">
                 </div>
                 <div class="form-field">
-                    <input type="text" name="username" placeholder="Enter a Username" style="text-transform: uppercase;">
+                    <p>Username</p>
+                    <input type="text" name="room" placeholder="" style="text-transform: uppercase;">
                 </div>
                 <div class="form-field">
-                    <input type="submit" value="Join Stream">
+                    <p>Password</p>
+                    <input type="text" name="username" placeholder="" style="text-transform: uppercase;">
+                    <p>Forgot your password ?</p>
                 </div>
+                <div class="form-field">
+                    <input type="submit" value="Register">
+                </div>
+                <p class="flipper">Already have an account?</p>
+                <p>By registering, you agree to MyChat's Terms of Service and Privacy Policy</p>
+
             </form>
         </div>
     </div>
