@@ -9,8 +9,11 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
+import os
 from pathlib import Path
+
+
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -43,7 +46,15 @@ INSTALLED_APPS = [
     'compressor',
     'jquery',
 
+    'django.contrib.sites',
+    'allauth.socialaccount.providers.google',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
 ]
+
+SITE_ID = 1
 
 TAILWIND_APP_NAME = 'theme'
 
@@ -91,6 +102,16 @@ DATABASES = {
     }
 }
 
+AUTHENTICATION_BACKENDS = [
+
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+
+]
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -129,13 +150,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
-STATIC_URL = 'static/'
 
-STATICFILES_DIRS = [
-    BASE_DIR / "Static"
+STATIC_ROOT= os.path.join(BASE_DIR, "staticfiles")
+
+
+STATIC_URL = '/static/'
+MEDIA_URL = '/images/'
+MEDIA_ROOT = os.path.join(BASE_DIR, "images")
+STATICFILES_DIRS=[
+    os.path.join(BASE_DIR,'Static')
 ]
+STATIC_ROOT=os.path.join(BASE_DIR,'Static')
 
-COMPRESS_ROOT = BASE_DIR / 'static'
+COMPRESS_ROOT = BASE_DIR / 'Static'
 
 COMPRESS_ENABLED = True
 

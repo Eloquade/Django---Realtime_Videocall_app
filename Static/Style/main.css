@@ -228,17 +228,13 @@ body{
 
 /*login styling*/
 .card {
-      position: relative;
-      padding: 30px;
-      top: 350px;
-      left: 700px;
-      width: 345px;
-      text-align: center;
-      transform: translate(-50%, -50%);
-
-
-
-
+    position: relative;
+    padding: 30px;
+    top: 350px;
+    left: 700px;
+    width: 345px;
+    text-align: center;
+    transform: translate(-50%, -50%);
 
 }
 .other-back{
@@ -276,9 +272,16 @@ body{
    background-size: cover;
 
 }
-
-
-
 #form{
     text-align: left;
+}
+.sign_with{
+    text-align: center;
+
+}
+.sign_with img{
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+
 }
